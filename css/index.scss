@@ -1,0 +1,33 @@
+
+
+.section {
+  background: #fff;
+  color: #000;
+  &--portfolio {
+    background: #ccc;
+  }
+  &--dark {
+    background: #000;
+    color: inherit;
+
+    .portfolio & {
+      background: #111;
+    }
+  }
+}
+
+
+.section {
+  background: #fff;
+}
+
+.section--portfolio {
+  background: #ccc;
+}
+.section--dark {
+  background: #000;
+}
+
+body.portfolio .section--dark {
+  background: #111;
+}
