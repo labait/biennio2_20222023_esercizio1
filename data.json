@@ -4,114 +4,133 @@
       "id": "4707",
       "lastname": "attaianese",
       "firstname": "viviana",
+      "color": "#11a0d9",
       "image": "img/person_01.jpg"
     },
     {
       "id": "4645",
       "lastname": "bonacasa",
       "firstname": "alice",
+      "color": "#11a0d9",
       "image": "img/person_02.jpg"
     },
     {
       "id": "4372",
       "lastname": "bonetti",
       "firstname": "cristina",
+      "color": "#11a0d9",
       "image": "img/person_03.jpg"
     },
     {
       "id": "6057",
       "lastname": "buizza",
       "firstname": "filippo",
+      "color": "#11a0d9",
       "image": "img/person_04.jpg"
     },
     {
       "id": "4642",
       "lastname": "cantu’",
       "firstname": "giada",
+      "color": "#11a0d9",
       "image": "img/person_01.jpg"
     },
     {
       "id": "",
       "lastname": "cappelli",
       "firstname": "sarah",
+      "color": "#11a0d9",
       "image": "img/person_02.jpg"
     },
     {
       "id": "6090",
       "lastname": "carnevali",
       "firstname": "nicole",
+      "color": "#11a0d9",
       "image": "img/person_03.jpg"
     },
     {
       "id": "4597",
       "lastname": "cauchioli",
       "firstname": "ilenia",
+      "color": "#11a0d9",
       "image": "img/person_04.jpg"
     },
     {
       "id": "5723",
       "lastname": "cominelli",
       "firstname": "anna",
+      "color": "#11a0d9",
       "image": "img/person_01.jpg"
     },
     {
       "id": "",
       "lastname": "degiacomi",
       "firstname": "paola",
+      "color": "#11a0d9",
       "image": "img/person_01.jpg"
     },
     {
       "id": "5837",
       "lastname": "gabrielli",
       "firstname": "ilenia",
+      "color": "#11a0d9",
       "image": "img/person_02.jpg"
     },
     {
       "id": "",
       "lastname": "gacci",
       "firstname": "andrea celeste",
+      "color": "#11a0d9",
       "image": "img/person_04.jpg"
     },
     {
       "id": "4694",
       "lastname": "lunardi",
       "firstname": "daniela",
+      "color": "#11a0d9",
       "image": "img/person_01.jpg"
     },
     {
       "id": "",
       "lastname": "mancini",
       "firstname": "cecilia",
+      "color": "#11a0d9",
       "image": "img/person_02.jpg"
     },
     {
       "id": "5740",
       "lastname": "panella",
       "firstname": "giorgia",
+      "color": "#11a0d9",
       "image": "img/person_03.jpg"
     },
     {
       "id": "4638",
       "lastname": "pasini",
       "firstname": "camilla",
+      "color": "#11a0d9",
       "image": "img/person_04.jpg"
     },
     {
       "id": "",
       "lastname": "piazzalunga",
       "firstname": "sara",
+      "color": "#11a0d9",
       "image": "img/person_01.jpg"
     },
     {
       "id": "5819",
       "lastname": "scaroni",
       "firstname": "noemi",
+      "color": "#11a0d9",
       "image": "img/person_02.jpg"
     },
     {
       "id": "4186",
       "lastname": "scotti",
       "firstname": "valeria",
+      "color": "#11a0d9",
       "image": "img/person_03.jpg"
     }
   ]

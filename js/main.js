@@ -1,65 +1,4 @@
-const init = () => {
-
-  $('body').removeClass('loading');
-
-  gsap.to('.loader', {alpha: 0, duration: 1, delay: 0.25, ease: Power2.easeOut})
-  gsap.from('.main-header nav .link-wrapper', {opacity: 0, y: 30, duration: 1, delay: 1, stagger: 0.15 })
-
-  gsap.from('.section__word', {opacity: 0, rotation: '5deg', scale: 2, y: 60, duration: 1, delay: 1, stagger: 0.15 })
-
-  //gsap.from('.section__word span', {opacity: 0, rotation: '5deg', y: 60, duration: 1, delay: 1.3, stagger: 0.15 })
-  //gsap.from('.section__word span', {opacity: 0, duration: 1, delay: 1, stagger: 0.15 })
-
-  $('.section__word').on('click', function() {
-    var index = $(this).attr('data-count')
-    var color = $(this).attr('data-color')
-    var image = $(this).attr('data-image')
-
-    // oppure
-    var index = $(this).data('count')
-    var color = $(this).data('color')
-    var image = $(this).data('image')
-
-    var person_name = $(this).text()
-
-    $('.section--people .person-avatar').attr('src', image)
-
-    $('.section--people').css('background', color)
-    $('.section--people').addClass(lightOrDark(color))
-    $('.section--people').addClass('show')
-    $('.section--people .person-name').html(person_name)
-  })
-
-  $('.toggle-close').on('click', function(){
-    $('.section--people').removeClass('show').removeClass('dark').removeClass('light')
-  })
-
-  $('.toggle-off-canvas').on('click', function(){
-    $('.section--off-canvas').toggleClass('show')
-    $(this).toggleClass('active')
-  })
-}
-
-
-const parseData = (data) => {
-  const list = document.getElementById("section-words");
-  for(var i in data.students){
-    const student = data.students[i]
-    console.log(i)
-    list.innerHTML += "<div class='section__word' data-count='"+i+"' student-id='"+student.id+"' data-color='#11a0d9' data-image='"+student.image+"'><span>"+student.firstname +" "+student.lastname+"</span></div>"
-  }
-
-  init()
-}
-
-document.addEventListener("DOMContentLoaded", () =>{
-  fetch('./students.json')
-  .then((response) => response.json())
-  .then(parseData)
-})
-
-
-function lightOrDark(color) {
+const lightOrDark = (color)  => {
     // Variables for red, green, blue values
     var r, g, b, hsp;
 
@@ -101,3 +40,56 @@ function lightOrDark(color) {
         return 'dark';
     }
 }
+
+
+
+const loadAndParseData = () => {
+  fetch('./data.json')
+  .then(response => response.json() )
+  .then((json) => {
+    data = json; // data variable in global scope is set = json from fetch 
+    const list = document.getElementById("section-words");
+    for(var i in json.students){
+      const student = json.students[i]
+      list.innerHTML += `<div class="section__word" data-id="${i}"><span>${student.firstname} ${student.lastname}</span></div>`
+    }
+    init()
+  })
+}
+
+
+const init = () => {
+  $('body').removeClass('loading');
+
+  gsap.to('.loader', {alpha: 0, duration: 1, delay: 0.25, ease: Power2.easeOut})
+  gsap.from('.main-header nav .link-wrapper', {opacity: 0, y: 30, duration: 1, delay: 1, stagger: 0.15 })
+  gsap.from('.section__word', {opacity: 0, rotation: '5deg', scale: 2, y: 60, duration: 1, delay: 1, stagger: 0.15 })
+
+  $('.section__word').on('click', function(){ // here's different to use function of this, we'll explain it later :-) 
+    const id = parseInt($(this).data("id"));
+    const student = data.students[id];
+    console.log(student);
+
+    var person_name = `${student.firstname} ${student.lastname}`;
+    $('.section--people').css('background', student.color)
+    $('.section--people').addClass(lightOrDark(student.color))
+    $('.section--people').addClass('show')
+    $('.section--people .person-name').html(person_name)
+
+    // #todo
+    //$('.section--people .person-avatar').attr('src', student.image) 
+    //...
+  })
+
+  $('.toggle-close').on('click', () => {
+    $('.section--people').removeClass('show').removeClass('dark').removeClass('light')
+  })
+
+  $('.toggle-off-canvas').on('click', () => {
+    $('.section--off-canvas').toggleClass('show')
+    $(this).toggleClass('active')
+  })
+}
+
+let data;
+document.addEventListener("DOMContentLoaded", loadAndParseData)
